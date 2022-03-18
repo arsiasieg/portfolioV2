@@ -1,22 +1,10 @@
-<div>
-    <div>
-        <mat-icon>home</mat-icon>
-
-    </div>
-    <div>
-        <mat-icon>person</mat-icon>
-
-    </div>
-    <div>
-        <mat-icon>school</mat-icon>
-
-    </div>
-    <div>
-        <mat-icon>work</mat-icon>
-
-    </div>
-    <div>
-        <mat-icon>email</mat-icon>
-
+<div class="container-fluid"></div>
+<div class="navbar justify-content-end">
+    <div class="container d-flex">
+        <div *ngFor="let icon of icons" class="icon d-flex justify-content-start align-items-center">
+            <mat-icon class="mx-2">{{icon}}</mat-icon>
+            <div>Expériences</div>
+        </div>
     </div>
 </div>
+
