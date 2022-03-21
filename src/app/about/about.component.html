@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="block  mb-5">
+        <div class="header d-flex mb-3">
+            <img class="profil-image" src="../assets/img/profil.png" alt="">
+            <div class="title-informations">
+                <h1>Camille LUCAS</h1>
+                <p>Lyon 09 - France</p>
+                <p>cam.lucas@gmail.com</p>
+                <p>+33 6 33 36 24 85</p>
+            </div>
+        </div>
+        <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eligendi hic quod adipisci voluptatibus, saepe illo, placeat quo deleniti mollitia, facilis obcaecati neque voluptate. Asperiores recusandae sit hic quos! Itaque!
+        </div>
+    </div>
+
+    <div class="block mb-5">
+        <h2>Loisirs</h2>
+        <div class="d-flex" *ngFor="let hobby of hobbies">
+            <img class="icon" src="../assets/icons/{{hobby.icon}}.png" alt="">
+            <p>{{hobby.description}}</p>
+        </div>
+    </div>
+
+    <div class="block mb-3">
+        <h2>Langages</h2>
+        <div class="d-flex justify-content-between mt-3">
+            <p *ngFor="let language of languages">
+                <img class="icon" src="../assets/icons/{{language.icon}}.png" alt="">
+                {{language.name}}
+            </p>
+        </div>
+    </div>
+
+</div>

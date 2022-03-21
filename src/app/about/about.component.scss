@@ -1,0 +1,33 @@
+@import '../variables';
+
+.container{
+    border-radius: 10px;
+    background-color: $color-secondary;
+    padding : 1rem 1rem 1rem 2rem;
+    margin-left: -1rem;
+}
+
+h2{
+    text-align: center;
+}
+
+p{
+    padding-top : .4rem
+}
+
+.icon{
+    margin : 0 .3rem;
+}
+
+.profil-image{
+    margin-right: 1rem;
+    flex : 1;
+}
+
+.title-informations{
+    flex : 2;
+}
+
+.description{
+    text-align: justify;
+}

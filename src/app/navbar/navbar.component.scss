@@ -1,17 +1,27 @@
 @import '../variables';
+
 .container-fluid{
     height: 60px;
     filter:blur(4px);
     background: linear-gradient($color-primary, rgba(0, 0, 0, 0));
     opacity: .4;
-    position: fixed;
+    position: absolute;
+    top : 0;
 }
 
 .icon {
-    width: 13rem;
-    height: 3rem;
-    padding : .5rem;
+    height: 4rem;
+    padding : .5rem .1rem;
     background-color : $color-primary;
     color : $color-secondary;
     position: relative;
+    top : -20px;
+}
+
+.desktop-only{
+    display: none;
+}
+
+a{
+    text-decoration: none;
 }

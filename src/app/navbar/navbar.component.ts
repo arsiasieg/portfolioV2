@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Link } from '../shared/models/link.model';
 
 @Component({
   selector: 'app-navbar',
@@ -6,15 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  icons : string[]
+  navigations : Link[]
 
   constructor() {
-    this.icons = [
-      'home',
-      'person',
-      'school',
-      'work',
-      'email'
+    this.navigations = [
+      new Link('home','Accueil', '/home'),
+      new Link('person', 'A propos', '/'),
+      new Link('school', 'Expériences', '/'),
+      new Link('work', 'Projets', '/'),
+      new Link('email', 'Contact', '/'),
+      new Link('dashboard', 'Dashboard', '/dashboard')
     ]
    }
 
