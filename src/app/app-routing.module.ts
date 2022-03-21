@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
+    path : "",
+    component : AboutComponent
+  },
+  {
     path : 'home',
-    component : AppComponent
+    component : AboutComponent
   },
   {
     path: 'dashboard',

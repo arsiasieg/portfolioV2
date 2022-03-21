@@ -9,6 +9,10 @@
     top : 0;
 }
 
+.navbar{
+    justify-content: space-between;
+}
+
 .icon {
     height: 4rem;
     padding : .5rem .1rem;
@@ -16,6 +20,7 @@
     color : $color-secondary;
     position: relative;
     top : -20px;
+    align-items: end;
 }
 
 .desktop-only{
@@ -24,4 +29,37 @@
 
 a{
     text-decoration: none;
+}
+
+
+@media screen and (min-width : 850px) {
+    .navbar{
+        justify-content: flex-end;
+        margin-right: 3rem;
+    }
+    .icon{
+        height: 15rem;
+        margin : 0 1rem;
+        padding : 0 1rem;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+        font-size: 1.6rem;
+    }
+
+    mat-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        font-size: 3rem;
+    }
+
+    .desktop-only{
+        display: block;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+    
 }

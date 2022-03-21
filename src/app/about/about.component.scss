@@ -3,25 +3,24 @@
 .container{
     border-radius: 10px;
     background-color: $color-secondary;
-    padding : 1rem 1rem 1rem 2rem;
-    margin-left: -1rem;
+    padding : 1rem;
 }
 
 h2{
     text-align: center;
 }
 
-p{
-    padding-top : .4rem
-}
-
 .icon{
-    margin : 0 .3rem;
+    width: 50px;
+    height: auto;
+    margin : 0 .5rem;
 }
 
 .profil-image{
-    margin-right: 1rem;
-    flex : 1;
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
+    height: auto;
 }
 
 .title-informations{
@@ -30,4 +29,39 @@ p{
 
 .description{
     text-align: justify;
+}
+
+.hobbies{
+    display: flex;
+    flex-direction: column;
+}
+
+.language{
+    justify-content :space-between;
+    flex-direction: colum;
+}
+
+@media screen and (min-width : 1140px) {
+    .container{
+        margin-left : 12%;
+    }
+
+    .title-informations{
+        flex : 4;
+    }
+
+    p{
+        font-size: 26px;
+    }
+
+    .hobbies{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .language{
+        width: 50%;
+        flex-direction: row;
+    }
 }

@@ -16,6 +16,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 //MATERIAL<
 import {MatIconModule} from '@angular/material/icon';
+import { AboutCrudComponent } from './dashboard/about-crud/about-crud.component';
+import { ExperiencesCrudComponent } from './dashboard/experiences-crud/experiences-crud.component';
+import { ProjectsCrudComponent } from './dashboard/projects-crud/projects-crud.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {MatIconModule} from '@angular/material/icon';
     ContactComponent,
     MentionslegalesComponent,
     ProjectsComponent,
-    DashboardComponent
+    DashboardComponent,
+    AboutCrudComponent,
+    ExperiencesCrudComponent,
+    ProjectsCrudComponent
   ],
   imports: [
     BrowserModule,
