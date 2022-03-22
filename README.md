@@ -1,27 +1,125 @@
-# PortfolioV2
+<div id="top"></div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Development server
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<h3 align="center">Camille LUCAS - Développeuse web et web mobile</h3>
+</div>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table du guide (cliquez)</summary>
+  <ol>
+    <li>
+      <a href="#a-propos-du-projet">A propos du projet</a>
+      <ul>
+        <li><a href="#crée-avec">Crée avec</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#bien-débuter">Bien débuter</a>
+      <ul>
+        <li><a href="#prerequis">Prerequis</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#remerciements">Remerciements</a></li>
+  </ol>
+</details>
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+<!-- ABOUT THE PROJECT -->
+## A propos du projet
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Projet débuté dans le cadre d'une formation, il s'agit de la partie front de mon portfolio. La partie back est disponible <a href="https://github.com/arsiasieg/portfolioBack">ICI</a>
 
-## Running end-to-end tests
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Crée avec 
+
+* [Angular](https://angular.io/)
+* [Angular Material](https://material.angular.io/)
+* [Bootstrap](https://getbootstrap.com)
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Bien débuter
+
+Pour mettre en place une copie locale et la faire fonctionner, suivez les étapes simples ci-dessous.
+
+### Prerequis
+
+Vous devrez au préalable vous assurer d'avoir un IDE (VS Code) sur votre machine ainsi qu'installer NPM.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+Suivez les commandes suivantes à entrer dans le terminal de votre VS Code.
+
+1. Cloner le projet
+   ```sh
+   git clone git@github.com:arsiasieg/portfolioV2.git
+   ```
+2. Installer les packages NPM nécessaires
+   ```sh
+   npm install
+   ```
+3. Entrer les clés de l'API nécessaires dans `environement.ts`
+   ```js
+    apiUrl : 'LIEN VERS UNE API';
+   ```
+4. Lancer le projet sur votre navigateur afin de le visualiser
+   ```sh
+   ng s -o
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- CONTACT -->
+## Contact
+
+Ce projet a été développé par moi-même : [@Camille Lucas](https://github.com/arsiasieg) -
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Remerciements
+
+* []()Wild Code School - pour cette formation intense mais très enrichissante
+* []()Pierre - pour son soutien et sa disponibilité 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/WildCodeSchool/P3-clutchrayn-front-javangular-2021/graphs/contributors
