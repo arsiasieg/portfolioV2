@@ -1,0 +1,80 @@
+<div class="container">
+  <h1>
+    {{ hobby != undefined ? "Modifier le loisir" : "Creer un loisir" }}
+  </h1>
+
+  <form
+    (ngSubmit)="hobbyForm.valid && submitForm()"
+    [formGroup]="hobbyForm"
+  >
+    <div class="my-4">
+      <p>Description :</p>
+      <mat-form-field>
+        <input name="description" type="text" matInput formControlName="description">
+        <mat-error
+          *ngIf="
+          hobbyForm.controls['description'].invalid &&
+          hobbyForm.controls['description'].errors!['required']
+          "
+          >Description requise</mat-error
+        >
+        <mat-error
+          *ngIf="
+          hobbyForm.controls['description'].invalid &&
+          hobbyForm.controls['description'].errors!['minlength']
+          "
+          >La description doit contenir au moins 3 characters</mat-error
+        >
+        <mat-error
+          *ngIf="
+          hobbyForm.controls['description'].invalid &&
+          hobbyForm.controls['description'].errors!['maxlength']
+          "
+          >La description ne peut contenir plus de 100 characters</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="my-4">
+      <p>Icone :</p>
+      <div class="d-flex">
+        <mat-icon class="col-md-4" *ngIf="updateIcon != ''">{{ updateIcon }}</mat-icon>
+        <div class="d-flex flex-column col-md-6">
+          <mat-form-field> 
+            <input name="iconName" type="text" matInput formControlName="iconName">
+            <mat-error
+              *ngIf="
+              hobbyForm.controls['iconName'].invalid &&
+              hobbyForm.controls['iconName'].errors!['required']
+              "
+              >Icone requise</mat-error
+            >
+            <mat-error
+              *ngIf="
+              hobbyForm.controls['iconName'].invalid &&
+              hobbyForm.controls['iconName'].errors!['minlength']
+              "
+              >L'icone doit contenir au moins 3 characters</mat-error
+            >
+            <mat-error
+              *ngIf="
+              hobbyForm.controls['iconName'].invalid &&
+              hobbyForm.controls['iconName'].errors!['maxlength']
+              "
+              >L'icone ne peut contenir plus de 100 characters</mat-error
+            >
+          </mat-form-field>
+          <button type="button" (click)="updateIconName()">Vérifier l'icone</button>
+        </div>
+      </div>
+    </div>
+    <button
+    style="float: right"
+      class="mb-3"
+      type="submit"
+      [disabled]="hobbyForm.invalid"
+      mat-dialog-close
+    >
+      {{ hobby != undefined ? "Modifier" : "Creer" }}
+    </button>
+  </form>
+</div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Hobby } from '../shared/models/hobby.model';
 import { Language } from '../shared/models/language.model';
+import { User } from '../shared/models/user.model';
+import { HobbyService } from '../shared/services/hobby.service';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-about',
@@ -8,20 +11,12 @@ import { Language } from '../shared/models/language.model';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  user: User|undefined;
   hobbies: Hobby[];
   languages : Language[];
 
-  constructor() {
-    this.hobbies = [
-      new Hobby(1, 'thinking','Créer de manière générale'),
-      new Hobby(2, 'infography', 'Infographie'),
-      new Hobby(3, 'game', 'Jeux vidéo et de société'),
-      new Hobby(4, 'anime', 'Animes et mangas'),
-      new Hobby(5, 'archer', 'Tir à l\'arc'),
-      new Hobby(6, 'music', 'Musique'),
-      new Hobby(7, 'beer', 'BBB (Boire une Bière dans un Bar)')
-    ];
-
+  constructor(private userService: UserService, private hobbyService : HobbyService) {
+    this.hobbies = [];
     this.languages = [
       new Language(1, 'french', 'Francais'),
       new Language(2, 'english', 'Anglais'),
@@ -30,6 +25,25 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //USERS
+    this.userService.getUsers().subscribe({
+      next : (users) => {
+        this.user = users[0];
+      },
+      error: () => {
+        console.log("Erreur de récupération des users")
+      }
+    })
+
+    //HOBBIES
+    this.hobbyService.getHobbies().subscribe({
+      next : (hobbies) => {
+        this.hobbies = hobbies;
+      },
+      error: () => {
+        console.log("Erreur de récupération des hobbies")
+      }
+    })
   }
 
 }

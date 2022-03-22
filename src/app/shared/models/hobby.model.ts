@@ -1,11 +1,11 @@
 export class Hobby {
     id: number;
-    icon: string;
+    iconName: string;
     description :string;
 
-    constructor(id: number, icon: string, description: string){
+    constructor(id: number, iconName: string, description: string){
         this.id = id;
-        this.icon = icon;
+        this.iconName = iconName;
         this.description = description;
     }
 }

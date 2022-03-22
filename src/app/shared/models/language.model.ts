@@ -1,11 +1,11 @@
 export class Language {
     id: number;
-    icon: string;
-    name: string;
+    iconName: string;
+    description: string;
 
-    constructor(id: number, icon : string, name: string){
+    constructor(id: number, iconName : string, description: string){
         this.id = id;
-        this.icon = icon;
-        this.name = name;
+        this.iconName = iconName;
+        this.description = description;
     }
 }

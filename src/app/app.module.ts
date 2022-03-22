@@ -12,13 +12,20 @@ import { ContactComponent } from './contact/contact.component';
 import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
-//MATERIAL<
-import {MatIconModule} from '@angular/material/icon';
 import { AboutCrudComponent } from './dashboard/about-crud/about-crud.component';
 import { ExperiencesCrudComponent } from './dashboard/experiences-crud/experiences-crud.component';
 import { ProjectsCrudComponent } from './dashboard/projects-crud/projects-crud.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HobbyFormComponent } from './dashboard/form/hobby-form/hobby-form.component';
+
+
+//MATERIAL
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 @NgModule({
@@ -34,13 +41,20 @@ import { ProjectsCrudComponent } from './dashboard/projects-crud/projects-crud.c
     DashboardComponent,
     AboutCrudComponent,
     ExperiencesCrudComponent,
-    ProjectsCrudComponent
+    ProjectsCrudComponent,
+    HobbyFormComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,65 +2,228 @@
     <!-- A PROPOS -->
     <div
       class="card shadow mb-4"
-      style="color: var(--bs-gray-900); height: auto; padding-bottom: 20px; margin-top: 0px"
+      style="color: var(--bs-gray-900); height: auto; padding: 20px; margin-top: 0px"
     >
-    <h1>A propos</h1>
-        <table class="table">
-            <!-- HEADER -->
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Adresse</th>
-                    <th>Mail</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <!-- CONTENU -->
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="col-5 col-md-2">
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="basic"
-                        style="margin: 0 2px"
+        <form
+        *ngIf="user != undefined"
+        (ngSubmit)="userForm.valid && editUser()"
+        [formGroup]="userForm">
+            <!-- BUTTON -->
+            <div class="d-flex justify-content-between">
+              <h1>A propos</h1>
+              <div class="d-flex justify-content-end">
+                  <button *ngIf="!editMode" class="mx-2 btn-custom" (click)="switchEditMode()">
+                      <mat-icon>edit</mat-icon>
+                  </button>
+                  <button *ngIf="editMode" class="mx-2 btn-custom" type="submit" [disabled]="userForm.invalid">
+                      <mat-icon>done</mat-icon>
+                  </button>
+                  <button *ngIf="editMode" class="mx-2" (click)="switchEditMode()" style="background-color: rgba(255, 0, 0, 0.37);">
+                      <mat-icon>clear</mat-icon>
+                  </button>
+              </div>
+            </div>
+            
+
+            <div class="about">
+                <table class="table-responsive col-md-6 mb-4">
+                    <!-- CONTENU -->
+                    <tbody>
+                        <tr>
+                            <td>Nom</td>
+                            <td>
+                                <div *ngIf="!editMode">{{user.lastname}}</div>
+                                <mat-form-field *ngIf="editMode">
+                                    <input name="lastname" type="text" matInput formControlName="lastname">
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['lastname'].invalid &&
+                                      userForm.controls['lastname'].errors!['required']
+                                      "
+                                      >Nom requis</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['lastname'].invalid &&
+                                      userForm.controls['lastname'].errors!['minlength']
+                                      "
+                                      >Le nom doit contenir au moins 3 characters</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['lastname'].invalid &&
+                                      userForm.controls['lastname'].errors!['maxlength']
+                                      "
+                                      >Le nom ne peut contenir plus de 100 characters</mat-error
+                                    >
+                                  </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Prénom</td>
+                            <td>
+                                <div *ngIf="!editMode">{{user.firstname}}</div>
+                                <mat-form-field *ngIf="editMode">
+                                    <input name="firstname" type="text" matInput formControlName="firstname">
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['firstname'].invalid &&
+                                      userForm.controls['lastname'].errors!['required']
+                                      "
+                                      >Prénom requis</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['firstname'].invalid &&
+                                      userForm.controls['firstname'].errors!['minlength']
+                                      "
+                                      >Le prénom doit contenir au moins 3 characters</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['firstname'].invalid &&
+                                      userForm.controls['firstname'].errors!['maxlength']
+                                      "
+                                      >Le prénom ne peut contenir plus de 100 characters</mat-error
+                                    >
+                                  </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>
+                                <div *ngIf="!editMode">{{user.address}}</div>
+                                <mat-form-field *ngIf="editMode">
+                                    <input name="address" type="text" matInput formControlName="address">
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['address'].invalid &&
+                                      userForm.controls['address'].errors!['required']
+                                      "
+                                      >Adresse requise</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['address'].invalid &&
+                                      userForm.controls['address'].errors!['minlength']
+                                      "
+                                      >L'adresse doit contenir au moins 3 characters</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['address'].invalid &&
+                                      userForm.controls['address'].errors!['maxlength']
+                                      "
+                                      >L'adresse ne peut contenir plus de 100 characters</mat-error
+                                    >
+                                  </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <div *ngIf="!editMode">{{user.email}}</div>
+                                <mat-form-field *ngIf="editMode">
+                                    <input name="email" type="text" matInput formControlName="email">
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['email'].invalid &&
+                                      userForm.controls['email'].errors!['required']
+                                      "
+                                      >Email requise</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['email'].invalid &&
+                                      userForm.controls['email'].errors!['email']
+                                      "
+                                      >Veuillez entrer un mail valide</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['email'].invalid &&
+                                      userForm.controls['email'].errors!['minlength']
+                                      "
+                                      >L'adresse doit contenir au moins 5 characters</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['email'].invalid &&
+                                      userForm.controls['email'].errors!['maxlength']
+                                      "
+                                      >L'adresse ne peut contenir plus de 100 characters</mat-error
+                                    >
+                                  </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td>
+                                <div *ngIf="!editMode">{{user.phone}}</div>
+                                <mat-form-field *ngIf="editMode">
+                                    <input name="phone" type="text" matInput formControlName="phone">
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['phone'].invalid &&
+                                      userForm.controls['phone'].errors!['required']
+                                      "
+                                      >Téléphone requis</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['phone'].invalid &&
+                                      userForm.controls['phone'].errors!['minlength']
+                                      "
+                                      >Le téléphone doit contenir au moins 10 characters</mat-error
+                                    >
+                                    <mat-error
+                                      *ngIf="
+                                      userForm.controls['phone'].invalid &&
+                                      userForm.controls['phone'].errors!['maxlength']
+                                      "
+                                      >Le téléphone ne peut contenir plus de 18 characters</mat-error
+                                    >
+                                  </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-6">
+                    <p style="font-size:26px">Description</p>
+                    <div *ngIf="!editMode">{{user.description}}</div>
+                    <mat-form-field *ngIf="editMode">
+                        <textarea name="description" type="text" matInput formControlName="description"></textarea>
+                        <mat-error
+                          *ngIf="
+                          userForm.controls['description'].invalid &&
+                          userForm.controls['description'].errors!['required']
+                          "
+                          >Description requise</mat-error
                         >
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="warn"
-                        style="margin: 3px 2px"
+                        <mat-error
+                          *ngIf="
+                          userForm.controls['description'].invalid &&
+                          userForm.controls['description'].errors!['minlength']
+                          "
+                          >La description doit contenir au moins 5 characters</mat-error
                         >
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center" colspan="12">
-                        <button mat-mini-fab color="basic">
-                        <mat-icon>add</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        <mat-error
+                          *ngIf="
+                          userForm.controls['description'].invalid &&
+                          userForm.controls['description'].errors!['maxlength']
+                          "
+                          >La description ne peut contenir plus de 350 characters</mat-error
+                        >
+                      </mat-form-field>
+                </div>
+            </div>
+        </form>
     </div>
 
     <!-- HOBBIES -->
     <div
       class="card shadow mb-4"
-      style="color: var(--bs-gray-900); height: auto; padding-bottom: 20px; margin-top: 0px"
+      style="color: var(--bs-gray-900); height: auto; padding: 20px; margin-top: 0px"
     >
     <h1>Loisirs</h1>
         <table class="table">
@@ -69,40 +232,30 @@
                 <tr>
                     <th>#</th>
                     <th>Icone</th>
-                    <th>Description</th>
+                    <th class="desktop-only">Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <!-- CONTENU -->
             <tbody>
-                <tr>
-                    <td></td>
-                    <td>
-                        <mat-icon></mat-icon>
+                <tr class="col-md-12" *ngFor="let hobby of hobbies">
+                    <td class="col-md-1"> {{hobby.id}}</td>
+                    <td class="col-md-2">
+                        <mat-icon style="font-size: 40px">{{hobby.iconName}}</mat-icon>
                     </td>
-                    <td></td>
-                    <td class="col-5 col-md-2">
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="basic"
-                        style="margin: 0 2px"
-                        >
+                    <td class="desktop-only col-md-6">{{hobby.description}}</td>
+                    <td class="d-flex justify-content-around">
+                        <button class="mx-2 btn-custom" (click)="openUpdateHobbyForm(hobby.id)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="warn"
-                        style="margin: 3px 2px"
-                        >
+                        <button class="mx-2 btn-custom" (click)="deleteHobby(hobby.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center" colspan="12">
-                        <button mat-mini-fab color="basic">
+                        <button class="btn-custom" (click)="openCreateForm()">
                         <mat-icon>add</mat-icon>
                         </button>
                     </td>
@@ -114,7 +267,7 @@
     <!-- LANGUAGES -->
     <div
       class="card shadow mb-4"
-      style="color: var(--bs-gray-900); height: auto; padding-bottom: 20px; margin-top: 0px"
+      style="color: var(--bs-gray-900); height: auto; padding: 20px; margin-top: 0px"
     >
     <h1>Langues</h1>
         <table class="table">
@@ -123,7 +276,7 @@
                 <tr>
                     <th>#</th>
                     <th>Icone</th>
-                    <th>Description</th>
+                    <th class="desktop-only">Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -134,29 +287,19 @@
                     <td>
                         <mat-icon></mat-icon>
                     </td>
-                    <td></td>
-                    <td class="col-5 col-md-2">
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="basic"
-                        style="margin: 0 2px"
-                        >
+                    <td class="desktop-only"></td>
+                    <td>
+                        <button class="mx-2 btn-custom">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button
-                        class="mx-2"
-                        mat-mini-fab
-                        color="warn"
-                        style="margin: 3px 2px"
-                        >
+                        <button class="mx-2 btn-custom">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center" colspan="12">
-                        <button mat-mini-fab color="basic">
+                        <button class="btn-custom" mat-mini-fab color="basic">
                         <mat-icon>add</mat-icon>
                         </button>
                     </td>

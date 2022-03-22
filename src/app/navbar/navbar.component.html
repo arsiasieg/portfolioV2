@@ -1,6 +1,6 @@
 <div class="container-fluid"></div>
 <div class="navbar">
-    <a *ngFor="let navigation of navigations" routerLink="{{navigation.link}}" class="icon d-flex">
+    <a *ngFor="let navigation of navigations" routerLink="{{navigation.link}}" class="icon d-flex pb-2">
         <div class="desktop-only">{{navigation.name}}</div>
         <mat-icon class="mx-2">{{navigation.icon}}</mat-icon>
     </a>

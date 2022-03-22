@@ -1,3 +1,5 @@
+@import 'app/variables';
+
 html, body {
     height: 100%;
     background : url('assets/img/mainBackground.jpg') no-repeat;
@@ -14,6 +16,31 @@ body {
     
     p{
         margin : 0;
-        font-size: 18px;
+        font-size: 20px !important;
     }
+}
+
+.mat-icon{
+    color : $color-primary;
+}
+
+.btn-custom{
+    border : 1px solud $color-secondary;
+    background-color: $color-primary;
+    color : $color-secondary;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.486);
+
+    .mat-icon{
+        font-weight: bold;
+        color : $color-secondary;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    body{
+        p{
+            font-size: 30px !important;
+        }
+    }
+
 }

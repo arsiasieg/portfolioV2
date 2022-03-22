@@ -31,6 +31,10 @@ a{
     text-decoration: none;
 }
 
+mat-icon{
+    color: $color-secondary;
+}
+
 
 @media screen and (min-width : 850px) {
     .navbar{
