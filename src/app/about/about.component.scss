@@ -1,6 +1,7 @@
 @import '../variables';
 
 .container{
+    min-width: 385px;
     border-radius: 10px;
     background-color: $color-secondary;
     padding : 1rem;
@@ -42,9 +43,11 @@ h2{
     flex-direction: colum;
 }
 
-@media screen and (min-width : 1140px) {
+@media screen and (min-width : 765px) {
     .container{
-        margin-left : 12%;
+        width: 75%;
+        margin-left: -14%;
+        padding-left : 15%;
     }
 
     .title-informations{
@@ -58,7 +61,6 @@ h2{
     }
 
     .language{
-        width: 50%;
         flex-direction: row;
     }
 }

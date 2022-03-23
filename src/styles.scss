@@ -10,13 +10,8 @@ html, body {
 body {
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
-    h1, h2{
-        font-size: calc(1.3rem + 1.5vw)
-    }
-    
     p{
         margin : 0;
-        font-size: 20px !important;
     }
 }
 
@@ -25,7 +20,7 @@ body {
 }
 
 .btn-custom{
-    border : 1px solud $color-secondary;
+    border : 2px solid $color-secondary;
     background-color: $color-primary;
     color : $color-secondary;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.486);
@@ -36,11 +31,8 @@ body {
     }
 }
 
-@media screen and (min-width: 850px) {
-    body{
-        p{
-            font-size: 30px !important;
-        }
+@media screen and (min-width : 765px) {
+    h1, h2 {
+        font-size: calc(.7rem + 1.5vw) !important;
     }
-
 }

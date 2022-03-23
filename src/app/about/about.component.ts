@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
     this.languages = [
       new Language(1, 'french', 'Francais'),
       new Language(2, 'english', 'Anglais'),
-      new Language(3, 'japan', 'Japonais')
+      new Language(3, 'japan', 'Japonais'),
     ]
   }
 

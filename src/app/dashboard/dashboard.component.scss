@@ -3,19 +3,8 @@
     margin : auto;
 }
 
-mat-icon{
-    min-width: 40px;
-    font-size : 40px;
-}
-
-
 @media screen and (min-width: 850px) {
     .container-fluid{
         width: 80%;
-    }
-
-    mat-icon{
-        min-width: 70px;
-        font-size : 70px;
     }
 }
