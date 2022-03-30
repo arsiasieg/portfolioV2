@@ -1,1 +1,66 @@
-<p>projects-crud works!</p>
+<section>
+    <!-- PROJECT -->
+    <div
+      class="card shadow mb-4"
+      style="color: var(--bs-gray-900); height: auto; padding: 20px; margin-top: 0px"
+    >
+    <h1>Projets</h1>
+        <table class="table">
+            <!-- HEADER -->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Titre</th>
+                    <th class="desktop-only">Description</th>
+                    <th class="desktop-only">Statut</th>
+                    <th class="desktop-only">Github</th>
+                    <th class="desktop-only">Site</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <!-- CONTENU -->
+            <tbody>
+                <tr class="col-md-12" *ngFor="let project of projects">
+                    <td class=""> {{project.id}}</td>
+                    <td class="backgroundImage col-5 col-md-2" style="background-image: url('{{project.image}}');"></td>
+                    <td class=" col-5 col-md-2">{{project.title.length > 15 ? (project.title| slice: 0:15) + '...'
+                        : project.title}}</td>
+                    <td class="desktop-only col-md-3">{{project.description.length > 30 ? (project.description| slice: 0:30) + '...'
+                        : project.description}}</td>
+                    <td class="desktop-only col-md-1">
+                        <mat-icon>
+                            {{project.statut == "progress" ? "rotate_right": "check_circle_outline"}}
+                            </mat-icon>
+                        </td>
+                    <td class="desktop-only col-md-1">
+                        <a href="{{project.github}}">
+                            <img class="github" src="../assets/icons/githubBlack.png" alt="">
+                        </a>
+                    </td>
+                    <td class="desktop-only col-md-1">
+                        <a href="{{project.link}}">
+                            <mat-icon>link</mat-icon>
+                        </a>
+                    </td>
+                    <td class="d-flex col-3 col-md-2">
+                        <button class="mx-2 btn-custom" (click)="openUpdateProjectForm(project.id)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button class="mx-2 btn-custom" (click)="deleteProject(project.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="12">
+                        <button class="btn-custom" (click)="openCreateProjectForm()">
+                        <mat-icon>add</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+  

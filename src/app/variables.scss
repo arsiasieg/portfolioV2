@@ -5,10 +5,9 @@ $color-secondary : #d1d1fc;
     display: none;
 }
 
-.container{
-    border-radius: 10px;
-    background-color: $color-secondary;
-    padding : 1rem;
+
+table{
+    vertical-align: middle;
 }
 
 @media screen and (min-width: 850px) {

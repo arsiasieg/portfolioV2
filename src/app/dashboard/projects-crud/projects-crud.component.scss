@@ -1,0 +1,21 @@
+@import '../../variables';
+
+button{
+    border-radius: 50%;
+}
+
+.backgroundImage {
+    width: 150px;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+.github{
+    width: 30px;
+    height: auto;
+}
+
+mat-icon{
+    padding-top: .5rem;
+}

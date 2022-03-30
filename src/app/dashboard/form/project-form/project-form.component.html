@@ -1,0 +1,86 @@
+<div class="container">
+  <h1>
+    {{ project != undefined ? "Modifier le projet" : "Creer un projet" }}
+  </h1>
+
+  <form
+    (ngSubmit)="projectForm.valid && submitForm()"
+    [formGroup]="projectForm"
+    class="d-flex flex-column"
+  >
+    <mat-form-field>
+      <mat-label name="titre">Titre</mat-label>
+      <input name="titre" type="text" matInput formControlName="title" />
+      <mat-error
+        *ngIf="
+          projectForm.controls['title'].invalid &&
+          projectForm.controls['title'].errors!['required']
+        "
+      >
+        Titre requis
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label name="image">Image</mat-label>
+        <input name="image" type="text" matInput formControlName="image" />
+        <mat-error
+          *ngIf="
+            projectForm.controls['image'].invalid &&
+            projectForm.controls['image'].errors!['required']
+          "
+        >
+          Image requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label name="description">Description</mat-label>
+        <input name="description" type="text" matInput formControlName="description" />
+        <mat-error
+          *ngIf="
+            projectForm.controls['description'].invalid &&
+            projectForm.controls['description'].errors!['required']
+          "
+        >
+            Description requise
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label name="github">Lien github</mat-label>
+        <input name="github" type="text" matInput formControlName="github" />
+        <mat-error
+          *ngIf="
+            projectForm.controls['github'].invalid &&
+            projectForm.controls['github'].errors!['required']
+          "
+        >
+          Lien requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label name="link">Lien du site</mat-label>
+        <input name="link" type="text" matInput formControlName="link" />
+        <mat-error
+          *ngIf="
+            projectForm.controls['link'].invalid &&
+            projectForm.controls['link'].errors!['required']
+          "
+        >
+          Lien requis
+        </mat-error>
+      </mat-form-field>
+    <button
+      style="float: right"
+      class="mb-3"
+      type="submit"
+      [disabled]="projectForm.invalid"
+      mat-dialog-close
+    >
+      {{ project != undefined ? "Modifier" : "Creer" }}
+    </button>
+  </form>
+</div>

@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//MATERIAL
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,17 +25,9 @@ import { ProjectsCrudComponent } from './dashboard/projects-crud/projects-crud.c
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HobbyFormComponent } from './dashboard/form/hobby-form/hobby-form.component';
-
-
-//MATERIAL
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import { LanguageformComponent } from './dashboard/form/languageform/languageform.component';
 import { HomeComponent } from './home/home.component';
-
-
+import { ProjectFormComponent } from './dashboard/form/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -47,18 +46,21 @@ import { HomeComponent } from './home/home.component';
     HobbyFormComponent,
     LanguageformComponent,
     HomeComponent,
+    ProjectFormComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatIconModule,
     ReactiveFormsModule,
     FormsModule,
+    MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
