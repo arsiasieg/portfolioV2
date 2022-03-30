@@ -1,1 +1,32 @@
-<p>projects works!</p>
+<div class="container">
+    <h1>Projets</h1>
+    <div *ngFor="let project of projects" class="card project">
+        <div class="card-img-top" style="position: relative;">
+            <div class="imageContainer" style="background-image: url('{{project.image}}');"></div>
+            <div class="linkBanner d-flex justify-content-end w-100">
+                <a *ngIf="project.link != undefined" class="mx-4" href="{{project.link}}">
+                    <img class="link" src="../assets/icons/link.png" alt="link's image">
+                </a>
+                <a *ngIf="project.github != undefined" class="mx-4" href="{{project.github}}">
+                    <img class="github" src="../assets/icons/github.png" alt="github's image">
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text">{{project.description}}</p>
+            <div class="my-3">
+                <div class="d-flex">
+                    <h3 style="margin-right : .4rem">Technologie :</h3>
+                    <div *ngFor="let technology of project.technologies; let isOdd = odd;">
+                        {{technology.name}}{{isOdd ? "":"/"}}
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h3 style="margin-right : .4rem">Etat :</h3>
+                    <div>{{project.statut}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

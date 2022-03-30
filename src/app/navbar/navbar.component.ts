@@ -11,12 +11,10 @@ export class NavbarComponent implements OnInit {
 
   constructor() {
     this.navigations = [
-      new Link('home','Accueil', '/home'),
-      new Link('person', 'A propos', '/'),
+      new Link('person', 'A propos', 'about'),
+      new Link('work', 'Projets', 'projects'),
       new Link('school', 'Expériences', '/'),
-      new Link('work', 'Projets', '/'),
       new Link('email', 'Contact', '/'),
-      new Link('dashboard', 'Dashboard', '/dashboard')
     ]
    }
 

@@ -25,6 +25,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { LanguageformComponent } from './dashboard/form/languageform/languageform.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -43,6 +45,8 @@ import {MatInputModule} from '@angular/material/input';
     ExperiencesCrudComponent,
     ProjectsCrudComponent,
     HobbyFormComponent,
+    LanguageformComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

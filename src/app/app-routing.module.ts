@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path : "",
-    component : AboutComponent
+    component : HomeComponent
   },
   {
     path : 'home',
-    component : AboutComponent
+    component : HomeComponent
   },
   {
     path: 'dashboard',
@@ -23,7 +24,11 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 64],
+    }),
   ],
   exports: [RouterModule]
 })

@@ -5,8 +5,10 @@ import { Hobby } from 'src/app/shared/models/hobby.model';
 import { Language } from 'src/app/shared/models/language.model';
 import { User } from 'src/app/shared/models/user.model';
 import { HobbyService } from 'src/app/shared/services/hobby.service';
+import { LanguageService } from 'src/app/shared/services/language.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { HobbyFormComponent } from '../form/hobby-form/hobby-form.component';
+import { LanguageformComponent } from '../form/languageform/languageform.component';
 
 @Component({
   selector: 'app-about-crud',
@@ -31,7 +33,8 @@ export class AboutCrudComponent implements OnInit {
     private userService: UserService,
     private hobbyService : HobbyService,
     public dialog: MatDialog,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private languageService : LanguageService) {
       this.hobbies = [];
       this.languages = [];
       this.editMode = false;
@@ -40,7 +43,7 @@ export class AboutCrudComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.getHobbies();
-
+    this.getLanguages();
   }
 
   //ABOUT
@@ -91,20 +94,20 @@ export class AboutCrudComponent implements OnInit {
     })
   }
 
-   //Ouverture du formulaire de création
-   openCreateForm() {
+  //Ouverture du formulaire de création de hobby
+  openCreateHobbyForm() {
     this.dialog.open(HobbyFormComponent);
-    this.refreshHobbiesAfterCloseDialog();
+    this.refreshAfterCloseDialog("hobbies");
   }
 
-  //Ouverture du formulaire d'édition du bootcamp donné
+  //Ouverture du formulaire d'édition du hobby donné
   openUpdateHobbyForm(id: number){
     this.dialog.open(HobbyFormComponent, {
       data: {
         id,
       },
     });
-    this.refreshHobbiesAfterCloseDialog();
+    this.refreshAfterCloseDialog("hobbies");
   }
 
   deleteHobby(id: number){
@@ -122,11 +125,53 @@ export class AboutCrudComponent implements OnInit {
     }
   }
 
+  
+  //LANGUAGES
+  getLanguages(){
+    this.languageService.getLanguages().subscribe({
+      next: (languages) => {
+        this.languages = languages;
+      }
+    })
+  }
+
+   //Ouverture du formulaire de création de langage
+   openCreateLanguageForm() {
+    this.dialog.open(LanguageformComponent);
+    this.refreshAfterCloseDialog("languages");
+  }
+
+  //Ouverture du formulaire d'édition du langage donné
+  openUpdateLanguageForm(id: number){
+    this.dialog.open(LanguageformComponent, {
+      data: {
+        id,
+      },
+    });
+    this.refreshAfterCloseDialog("languages");
+  }
+
+  deleteLanguage(id: number){
+    if (confirm('Confirmez vous la suppression de ce loisir ?')) {
+      this.languageService.deleteLanguage(id).subscribe({
+        next: () => {
+          this.getLanguages();
+        },
+        error: () => {
+          console.log("Erreur lors de la suppression du hobby")
+        },
+      });
+    } else {
+      return;
+    }
+  }
+
   //Refresh le composant après fermeture du formulaire
-  refreshHobbiesAfterCloseDialog() {
+  refreshAfterCloseDialog(domain: string) {
     this.dialog.afterAllClosed.subscribe({
       next: () => {
-        this.getHobbies();
+        if(domain == "hobbies") this.getHobbies();
+        if(domain == "languages") this.getLanguages();
       },
       error: () => {
         console.log("Erreur lors de la fermeture du dialog")

@@ -1,24 +1,21 @@
-p{
-    font-size: 30px;
+.icon{
+    flex-direction: column;
 }
 
 mat-icon{
-    width: 100px;
-    height: 100px;
+    width: 50px;
     font-size: 50px ;
+    margin : .5rem;
 }
 
-mat-form-field{
-    width: 90%;
-}
+
 
 @media screen and (min-width: 850px) {
-    ::ng-deep.cdk-overlay-pane{
-        width: 50% !important;
-        font-size: 30px;
+    .icon{
+        flex-direction: row;
     }
 
-    mat-icon{
-        font-size: 100px ;
+    ::ng-deep.cdk-overlay-pane{
+        width: 50% !important;
     }
 }

@@ -189,7 +189,7 @@
                     </tbody>
                 </table>
                 <div class="col-md-6">
-                    <p style="font-size:26px">Description</p>
+                    <p>Description</p>
                     <div *ngIf="!editMode">{{user.description}}</div>
                     <mat-form-field *ngIf="editMode">
                         <textarea name="description" type="text" matInput formControlName="description"></textarea>
@@ -255,7 +255,7 @@
                 </tr>
                 <tr>
                     <td class="text-center" colspan="12">
-                        <button class="btn-custom" (click)="openCreateForm()">
+                        <button class="btn-custom" (click)="openCreateHobbyForm()">
                         <mat-icon>add</mat-icon>
                         </button>
                     </td>
@@ -282,24 +282,24 @@
             </thead>
             <!-- CONTENU -->
             <tbody>
-                <tr>
-                    <td></td>
-                    <td>
-                        <mat-icon></mat-icon>
+                <tr class="col-md-12" *ngFor="let language of languages">
+                    <td class="col-md-1">{{language.id}}</td>
+                    <td class="col-md-2">
+                        <mat-icon>{{language.iconName}}</mat-icon>
                     </td>
-                    <td class="desktop-only"></td>
-                    <td>
-                        <button class="mx-2 btn-custom">
+                    <td class="desktop-only col-md-6">{{language.description}}</td>
+                    <td class="d-flex justify-content-around">
+                        <button class="mx-2 btn-custom" (click)="openUpdateLanguageForm(language.id)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button class="mx-2 btn-custom">
+                        <button class="mx-2 btn-custom" (click)="deleteLanguage(language.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center" colspan="12">
-                        <button class="btn-custom" mat-mini-fab color="basic">
+                        <button class="btn-custom" (click)="openCreateLanguageForm()">
                         <mat-icon>add</mat-icon>
                         </button>
                     </td>

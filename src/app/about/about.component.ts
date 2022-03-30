@@ -3,6 +3,7 @@ import { Hobby } from '../shared/models/hobby.model';
 import { Language } from '../shared/models/language.model';
 import { User } from '../shared/models/user.model';
 import { HobbyService } from '../shared/services/hobby.service';
+import { LanguageService } from '../shared/services/language.service';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -15,13 +16,9 @@ export class AboutComponent implements OnInit {
   hobbies: Hobby[];
   languages : Language[];
 
-  constructor(private userService: UserService, private hobbyService : HobbyService) {
+  constructor(private userService: UserService, private hobbyService : HobbyService, private languageService : LanguageService) {
     this.hobbies = [];
-    this.languages = [
-      new Language(1, 'french', 'Francais'),
-      new Language(2, 'english', 'Anglais'),
-      new Language(3, 'japan', 'Japonais'),
-    ]
+    this.languages = []
   }
 
   ngOnInit(): void {
@@ -42,6 +39,16 @@ export class AboutComponent implements OnInit {
       },
       error: () => {
         console.log("Erreur de récupération des hobbies")
+      }
+    })
+
+    //LANGUAGES
+    this.languageService.getLanguages().subscribe({
+      next : (languages) => {
+        this.languages = languages;
+      },
+      error: () => {
+        console.log("Erreur de récupération des languages")
       }
     })
   }
